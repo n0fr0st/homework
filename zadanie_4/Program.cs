@@ -1,4 +1,5 @@
 ﻿Console.WriteLine("Введите число,  программа выпишет все четные числа от 1 до вашего числа.");
+Console.WriteLine("Введите число.");
 int num = Convert.ToInt32(Console.ReadLine());
 int i = 1;
 while (i <= num)
