@@ -1,14 +1,14 @@
 ﻿// первое задание на максимум и минимум
-Console.WriteLine("Введите 2 числа, чтобы вяснить какое большее, а какое меньшее.");
-Console.WriteLine("Введите первое число.");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число.");
-int num2 = Convert.ToInt32(Console.ReadLine());
-if (num1 > num2)
+Console.WriteLine("Введите 3ех значное число, и программа выдаст вам среднюю цифру этого числа.");
+int num = Convert.ToInt32(Console.ReadLine());
+int digit = 0;
+if (num < 1000 && num > 99)
 {
-    Console.WriteLine("Число " + num1 + " максимальное, а число " + num2 + " минимальное");
+    digit = (num / 10) % 10;
+    Console.WriteLine("Средняя цифра числа " + num + " - " + digit);
 }
-else if (num2 > num1)
+else 
 {
-    Console.WriteLine("Число " + num2 + " максимальное, а число " + num1 + " минимальное");
+    Console.WriteLine("Ваше число не явлется 3ех значным.");
+    return;
 }
