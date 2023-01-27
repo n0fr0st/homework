@@ -13,4 +13,4 @@ if(int.TryParse(Console.ReadLine(), out var num))
 }
 else Console.WriteLine("Вы ввели некорректное число.");
 }
-else Console.WriteLine("Вы ввели некорректное число.");
+else Console.WriteLine("Вы ввели не число.");
