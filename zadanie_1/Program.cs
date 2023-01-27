@@ -1,14 +1,16 @@
-﻿// первое задание на поиск средней цифры трехзначного числа
-Console.WriteLine("Введите 3ех значное число, и программа выдаст вам среднюю цифру этого числа.");
-int num = Convert.ToInt32(Console.ReadLine());
-int digit = 0;
-if (num < 1000 && num > 99)
+﻿// палиндром
+Console.WriteLine("Введите 5ти значное число и программа выведет, является ли оно палиндромом.");
+Console.WriteLine("Введите ваше число : ");
+if(int.TryParse(Console.ReadLine(), out var num))
 {
-    digit = (num / 10) % 10;
-    Console.WriteLine("Средняя цифра числа " + num + " - " + digit);
-}
-else 
+    if (num <= 99999 && num >= 10000)
 {
-    Console.WriteLine("Ваше число не явлется 3ех значным.");
-    return;
+    if ((num / 10000 == num % 10) && (num/1000%10 == num%100/10))
+        Console.WriteLine("число является палиндромом");
+
+    else 
+        Console.WriteLine("Ваше число не является палиндромом.");
 }
+else Console.WriteLine("Вы ввели некорректное число.");
+}
+else Console.WriteLine("Вы ввели некорректное число.");

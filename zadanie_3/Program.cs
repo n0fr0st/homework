@@ -1,12 +1,18 @@
-﻿Console.WriteLine("Введите цифру и программа выдаст является ли этот день - выходным.");
-int day = Convert.ToInt32(Console.ReadLine());
-if (day > 0 && day <= 7)
+﻿int Qube (int num)
 {
-    if (day == 6 || day == 7)
-        Console.WriteLine("да");
+    if(num > 0)
+    {
+        for (int i = 1; i <= num; i++)
+        {
+            int dig =(int)(Math.Pow(i, 3));
+            Console.Write(dig + " ");
+        }
+    }
     else
-        Console.WriteLine("нет");
+    Console.WriteLine("число не положительное.");
+    return num;
 }
-else
-    Console.WriteLine("Ваша цифра не соответствует ни одному дню недели.");
 
+Console.WriteLine("Введите число и программа выдаст таблицу кубов от 1 до вашего числа.");
+int num = Convert.ToInt32(Console.ReadLine());
+Qube(num);
