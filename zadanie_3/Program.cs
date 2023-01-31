@@ -1,18 +1,23 @@
-﻿int Qube (int num)
+﻿void newArray(int[] collection)
 {
-    if(num > 0)
+    int length = collection.Length;
+    int index = 0;
+    while(index < length)
     {
-        for (int i = 1; i <= num; i++)
-        {
-            int dig =(int)(Math.Pow(i, 3));
-            Console.Write(dig + " ");
-        }
+        collection[index] = Convert.ToInt32(Console.ReadLine());
+        index++;
     }
-    else
-    Console.WriteLine("число не положительное.");
-    return num;
 }
-
-Console.WriteLine("Введите число и программа выдаст таблицу кубов от 1 до вашего числа.");
-int num = Convert.ToInt32(Console.ReadLine());
-Qube(num);
+void printArray(int[] coll)
+{
+    int count = coll.Length;
+    int position = 0;
+    while(position < count)
+    {
+        Console.Write(coll[position] + " ");
+        position++;
+    }
+}
+int[] n = new int [8];
+newArray(n);
+printArray(n);

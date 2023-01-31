@@ -1,16 +1,25 @@
-﻿// палиндром
-Console.WriteLine("Введите 5ти значное число и программа выведет, является ли оно палиндромом.");
-Console.WriteLine("Введите ваше число : ");
-if(int.TryParse(Console.ReadLine(), out var num))
+﻿int extentSumm(int a, int b)
 {
-    if (num <= 99999 && num >= 10000)
+    if (b < 0)
+    return -1;
+    int decision = 1;
+    int extent = 1;
+    while (decision <= b)
+    {
+        extent = extent * a;
+        decision++;
+        
+    }
+    return extent;
+}
+Console.WriteLine("Введите число A и число B, тогда программа выдаст значение при возведении числа A в степень B.");
+Console.Write("Введите число A - ");
+int.TryParse(Console.ReadLine(), out int a);
+Console.Write("Введите число B - ");
+int.TryParse(Console.ReadLine(), out int b);
+if (extentSumm(a, b) == -1)
 {
-    if ((num / 10000 == num % 10) && (num/1000%10 == num%100/10))
-        Console.WriteLine("число является палиндромом");
-
-    else 
-        Console.WriteLine("Ваше число не является палиндромом.");
+    Console.WriteLine("Ваше число, в степень которого возводится А не является натуральным.");
 }
-else Console.WriteLine("Вы ввели некорректное число.");
-}
-else Console.WriteLine("Вы ввели не число.");
+else
+Console.WriteLine(extentSumm(a, b));
