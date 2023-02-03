@@ -2,7 +2,7 @@
 {
     int[] arr = new int[n];
     Random rndm = new Random();
-    for(int i = 0; i < arr.Length; arr[i++] = rndm.Next(99, 1000)){}
+    for(int i = 0; i < arr.Length; arr[i++] = rndm.Next(100, 1000)){}
     return arr;
 }
 int sumOfEven(int[] coll)
