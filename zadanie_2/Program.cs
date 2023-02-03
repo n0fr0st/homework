@@ -1,15 +1,29 @@
-﻿int summOfDigits(int n)
+﻿int[] GenArray(int n)
 {
-        if(n < 0)
-        n = Math.Abs(n);
-        int result = 0;
-        while (n != 0)
+        int[] array = new int[n];
+        Random rnd = new Random();
+        for (int index = 0; index < array.Length; index++)
         {
-                result = n%10 + result;
-                n = n/10;
+                array[index] = rnd.Next(-100, 101);
         }
-        return result;
+        return array;
 }
-Console.WriteLine("Введите число и программа выдаст сумму цифр этого числа.");
-int.TryParse(Console.ReadLine(), out int n);
-Console.WriteLine(summOfDigits(n));
+int summOfElements(int[] coll)
+{
+    int result = 0;
+    for(int i = 0; i < coll.Length; i++)
+    {
+        if(i%2 != 0)
+                result += coll[i];
+    }
+    Console.WriteLine($"Сумма нечетных элементов - {result}");
+    return result;
+}
+void printArray(int[] array)
+{
+    Console.WriteLine($"[{string.Join(",", array)}]");
+}
+System.Console.WriteLine("Введите число колличества элементов массива и программа вычислит сумму всех нечетных элементов этого массива.");
+int[] array = GenArray(Convert.ToInt32(Console.ReadLine()));
+printArray(array);
+summOfElements(array);

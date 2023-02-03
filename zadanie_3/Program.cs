@@ -1,29 +1,38 @@
-﻿void newArray(int[] collection)
+﻿float[] GenArray(int coll)
 {
-    int length = collection.Length;
-    int index = 0;
-    while(index < length)
+    float[] arr = new float[coll];
+    float result;
+    for(int index = 0; index < arr.Length; index++)
     {
-        int x;
-        while (!int.TryParse(Console.ReadLine(), out x))
+        Console.WriteLine($"Введите {index+1} элемент массива.");
+        while (!float.TryParse(Console.ReadLine(), out result))
         {
-            Console.WriteLine(" error try again");
+                Console.WriteLine(" error try again");
         }
-        collection[index] = x;
-        index++;
+        arr[index] = result;
     }
+    return arr;
 }
-void printArray(int[] coll)
+float diff(float[] coll)
 {
-    int count = coll.Length;
-    int position = 0;
-    while(position < count)
+    float max = coll[0];
+    float min = coll[0];
+    for(int i = 0; i < coll.Length; i++)
     {
-        Console.Write(coll[position] + ", ");
-        position++;
+        if(coll[i] > max)
+            max = coll[i];
+        if(coll[i] < min)
+            min = coll[i];
     }
+    float result = max - min;
+    Console.WriteLine(result);
+    return result;
 }
-Console.WriteLine("Введите числа и программа их выведет в виде массива.");
-int[] n = new int [8];
-newArray(n);
-printArray(n);
+void printArray(float[] array)
+{
+    Console.WriteLine($"[{string.Join(",", array)}]");
+}
+Console.WriteLine("Введите количество чисел в массиве и элементы этого массива, после программа вычислит разницу между максимальным элементом этого массива и минимальным.");
+float[] array = GenArray(Convert.ToInt32(Console.ReadLine()));
+printArray(array);
+diff(array);
