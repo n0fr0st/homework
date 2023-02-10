@@ -21,9 +21,8 @@ void printArray(int[,] array)
     }
     
 }
-int divNum(int[,] collection)
+void divNum(int[,] collection)
 {
-    int res = 0;
         for(int j = 0; j < collection.GetLength(1); j++)
     {
         float result = 0;
@@ -33,7 +32,6 @@ int divNum(int[,] collection)
         }  
         Console.WriteLine($" среднее арифметическое для {j+1} столбца - {result/collection.GetLength(0):f1}");    
     }
-    return res;
 }
 int[,] array = generateArray(3, 4, 0, 10);
 printArray(array);
