@@ -1,38 +1,40 @@
-﻿float[] GenArray(int coll)
+﻿int[,] generateArray(int m, int n, int min, int max){
+    int[,] arrNum = new int[m, n];
+    Random rnd = new Random();
+
+    for(int i = 0; i < arrNum.GetLength(0); i++){
+        for(int j = 0; j < arrNum.GetLength(1); j++)
+           arrNum[i, j] = rnd.Next(min, max);
+    }
+    return arrNum;
+}
+void printArray(int[,] array)
 {
-    float[] arr = new float[coll];
-    float result;
-    for(int index = 0; index < arr.Length; index++)
+    for(int i = 0; i < array.GetLength(0); i++)
     {
-        Console.WriteLine($"Введите {index+1} элемент массива.");
-        while (!float.TryParse(Console.ReadLine(), out result))
+        for(int j = 0; j < array.GetLength(1); j++)
         {
-                Console.WriteLine(" error try again");
-        }
-        arr[index] = result;
+            Console.Write($"[{string.Join(", ", array[i,j])}]");
+    
+        }        
+    Console.WriteLine();
     }
-    return arr;
+    
 }
-float diff(float[] coll)
+int divNum(int[,] collection)
 {
-    float max = coll[0];
-    float min = coll[0];
-    for(int i = 0; i < coll.Length; i++)
+    int res = 0;
+        for(int i = 0; i < collection.GetLength(1); i++)
     {
-        if(coll[i] > max)
-            max = coll[i];
-        if(coll[i] < min)
-            min = coll[i];
+        float result = 0;
+        for(int j = 0; j < collection.GetLength(0); j++)
+        {
+            result += collection[j,i];
+        }  
+        Console.WriteLine($" среднее арифметическое для {i+1} столбца - {result/collection.GetLength(0):f1}");    
     }
-    float result = max - min;
-    Console.WriteLine(result);
-    return result;
+    return res;
 }
-void printArray(float[] array)
-{
-    Console.WriteLine($"[{string.Join(",", array)}]");
-}
-Console.WriteLine("Введите количество чисел в массиве и элементы этого массива, после программа вычислит разницу между максимальным элементом этого массива и минимальным.");
-float[] array = GenArray(Convert.ToInt32(Console.ReadLine()));
+int[,] array = generateArray(3, 4, 0, 10);
 printArray(array);
-diff(array);
+divNum(array);
