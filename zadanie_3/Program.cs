@@ -24,14 +24,14 @@ void printArray(int[,] array)
 int divNum(int[,] collection)
 {
     int res = 0;
-        for(int i = 0; i < collection.GetLength(1); i++)
+        for(int j = 0; j < collection.GetLength(1); j++)
     {
         float result = 0;
-        for(int j = 0; j < collection.GetLength(0); j++)
+        for(int i = 0; i < collection.GetLength(0); i++)
         {
-            result += collection[j,i];
+            result += collection[i,j];
         }  
-        Console.WriteLine($" среднее арифметическое для {i+1} столбца - {result/collection.GetLength(0):f1}");    
+        Console.WriteLine($" среднее арифметическое для {j+1} столбца - {result/collection.GetLength(0):f1}");    
     }
     return res;
 }
