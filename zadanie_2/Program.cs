@@ -8,39 +8,49 @@
     }
     return arrNum;
 }
-void printArray(int[,] array){
-        for(int i = 0; i < array.GetLength(0); i++){
+void printArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
         for(int j = 0; j < array.GetLength(1); j++)
-           Console.Write($"[{string.Join(", ", array[i,j])}]");
-        Console.WriteLine();
+        {
+            Console.Write("{0,3}",array[i,j]);
+    
+        }        
+    Console.WriteLine();
     }
+    
 }
-int GetNumFromArray(int[,] collection)
+void divNum(int[,] collection)
 {
-    int result;
-Console.WriteLine("Введите позиции элемента массива через пробел, а программа выдаст вам значение этого элемента.");
-string input = Console.ReadLine()!;
-string[] numdersString = input.Split(" ");
-int[] numbers = new int[numdersString.Length];
-
-for (int i = 0; i < numbers.Length; i++)
-{
-    numbers[i] = int.Parse(numdersString[i]);
-}
-if(numbers[0] > collection.GetLength(0) || numbers[1] > collection.GetLength(1)){
-    result = -1;
-    Console.Write("такого элемента в массиве нет.");
+    int[] result = new int [collection.GetLength(0)];
+    int min = 0;
+    int minval = 0;
+    int rowsValue = 0;
+    for(int i = 0; i < collection.GetLength(0); i++)
+    {
+        int sum = 0;
+        for(int j = 0; j < collection.GetLength(1); j++)
+        {
+        sum += collection[i,j];
+        }
+        result[i] = sum; 
     }
-    else{
-    result = collection[numbers[0], numbers[1]];
-    Console.WriteLine(result);
+        min = result[0];
+    for(int index = 0; index < collection.GetLength(0);index++)
+    {
+        if (min > result[index])
+        {
+            min = result[index];
+            rowsValue = index;
+        }
+        minval = min;
     }
-    return result;
+    Console.WriteLine($"номер строки с наименьшей суммой элементов - {rowsValue + 1}, сумма элементов этой строки - {min}");
 }
-
-int[,] array = generateArray(3,4,-10,10);
+int[,] array = generateArray(4, 4, 0, 10);
 printArray(array);
-GetNumFromArray(array);
+divNum(array);
 
 
 
